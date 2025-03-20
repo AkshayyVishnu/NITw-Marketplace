@@ -1,86 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NITw Marketplace - Sell</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body class="light-theme">
-  <header>
-    <div class="logo">
-      <img src="https://avatars.githubusercontent.com/u/6388264?s=200&v=4" alt="Institute Logo" />
-    </div>
-    <nav>
-      <ul>
-        <li><a class="nav-link" href="index.html">Home</a></li>
-        <li><a class="nav-link" href="login.html">Login</a></li>
-        <li><a class="nav-link" href="signup.html">Signup</a></li>
-        <li><a class="nav-link" href="auction.html">Auction</a></li>
-        <li><a class="nav-link" href="sell.html">Sell</a></li>
-        <li><a class="nav-link" href="buy.html">Buy</a></li>
-        <li><a class="nav-link" href="rent.html">Rent</a></li>
-    
-        <li><a class="nav-link" href="donate.html">Donate</a></li>
-      </ul>
-    </nav>
-    <div class="theme-toggle">
-      <button id="toggleTheme">Toggle Theme</button>
-    </div>
-  </header>
-  
-  <main>
-    <div class="form-container">
-      <h2>Sell an Item</h2>
-      <form id="sellForm">
-        <label for="sellTitle">Item Title:</label>
-        <input type="text" id="sellTitle" name="title" required>
-        
-        <label for="sellDescription">Description:</label>
-        <textarea id="sellDescription" name="description" required></textarea>
-        
-        <label for="sellPrice">Price (INR):</label>
-        <input type="number" id="sellPrice" name="price" required>
-        
-        <label for="sellImage">Image URL:</label>
-        <input type="text" id="sellImage" name="image" placeholder="Enter image URL" required>
-        
-        <button type="submit">Post Item for Sale</button>
-      </form>
-    </div>
-  </main>
-  
-  <footer>
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>About NITw Marketplace</h3>
-        <p>A platform created by students, for students to buy, sell, and auction items within the college community.</p>
+  <div class="body-container">
+    <header>
+      <div class="logo">
+        <img src="https://avatars.githubusercontent.com/u/6388264?s=200&v=4" alt="Institute Logo">
       </div>
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="faq.html">FAQs</a></li>
-          <li><a href="terms.html">Terms of Service</a></li>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="signup.html">Signup</a></li>
+          <li><a href="auction.html">Auction</a></li>
+          <li><a href="sell.html">Sell</a></li>
+          <li><a href="buy.html">Buy</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="cart.html">Cart</a></li>
         </ul>
+      </nav>
+      <div class="theme-toggle">
+        <button id="toggleTheme">Toggle Theme</button>
       </div>
-      <div class="footer-section">
-        <h3>Connect With Us</h3>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </header>
+
+    <main>
+      <section class="auth-container">
+        <div class="auth-card login-card">
+          <div class="auth-header">
+            <h2>Sell an Item</h2>
+            <p>List your item in NITw Marketplace</p>
+          </div>
+          <form id="sellForm" class="auth-form">
+            <div class="form-group">
+              <label for="sellTitle">Item Title</label>
+              <div class="input-icon">
+                <i class="fas fa-tag"></i>
+                <input type="text" id="sellTitle" name="title" required placeholder="Enter item title">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="sellDescription">Description</label>
+              <div class="input-icon">
+                <i class="fas fa-align-left"></i>
+                <textarea id="sellDescription" name="description" required placeholder="Describe your item"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="sellPrice">Price (INR)</label>
+              <div class="input-icon">
+                <i class="fas fa-rupee-sign"></i>
+                <input type="number" id="sellPrice" name="price" required placeholder="Enter price">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="sellImage">Image URL</label>
+              <div class="input-icon">
+                <i class="fas fa-image"></i>
+                <input type="text" id="sellImage" name="image" required placeholder="Enter image URL">
+              </div>
+            </div>
+            <div class="button-row">
+              <button type="submit" class="btn primary-btn full-width">Post Item for Sale</button>
+            </div>
+          </form>
+          <div class="auth-footer">
+            <p>Want to browse items instead? <a href="buy.html">Shop now</a></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About NITw Marketplace</h3>
+          <p>A platform created by students, for students to buy, sell, and auction items within the college community.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Connect With Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 NITw Marketplace. All rights reserved.</p>
-    </div>
-  </footer>
-  
+      <div class="footer-bottom">
+        <p>&copy; 2025 NITw Marketplace. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <div id="notification-container"></div>
+
   <script src="script.js"></script>
+  <script>
+    document.getElementById("sellForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const title = document.getElementById("sellTitle").value;
+      const description = document.getElementById("sellDescription").value;
+      const price = document.getElementById("sellPrice").value;
+      const image = document.getElementById("sellImage").value;
+      const newItem = { id: Date.now(), title, description, price, image };
+      let sellItems = JSON.parse(localStorage.getItem("sellItems")) || [];
+      sellItems.push(newItem);
+      localStorage.setItem("sellItems", JSON.stringify(sellItems));
+      alert("Item posted for sale!");
+      this.reset();
+    });
+  </script>
 </body>
 </html>
