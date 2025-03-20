@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping Cart - NITw Marketplace</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body class="light-theme">
+  <header>
+    <div class="logo">
+      <img src="https://avatars.githubusercontent.com/u/6388264?s=200&v=4" alt="Institute Logo" />
+    </div>
+    <nav>
+        <ul style="display: flex; justify-content: space-between; align-items: center; padding: 0 20px; list-style: none;">
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="login.html">Login</a></li>
+          <li><a class="nav-link" href="signup.html">Signup</a></li>
+          <li><a class="nav-link" href="auction.html">Auction</a></li>
+          <li><a class="nav-link" href="sell.html">Sell</a></li>
+          <li><a class="nav-link" href="buy.html">Buy</a></li>
+          <li><a class="nav-link" href="donate.html">Donate</a></li>
+          <li><a class="nav-link" href="cart.html">Cart</a></li>
+        </ul>
+      </nav>
+    <div class="theme-toggle">
+      <button id="toggleTheme">Toggle Theme</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="cart-items" class="products-grid">
+    </section>
+    <div id="cart-summary" class="cart-summary">
+      <h2>Total: ₹<span id="total-price">0</span></h2>
+      <button onclick="checkoutCart()">Proceed to Checkout</button>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About NITw Marketplace</h3>
+        <p>A platform created by students, for students to buy, sell, and auction items within the college community.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Connect With Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 NITw Marketplace. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    function loadCart() {
+      const cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+      const container = document.getElementById("cart-items");
+      const totalPriceElem = document.getElementById("total-price");
+
+      container.innerHTML = "";
+      let total = 0;
+
+      if (cart.length === 0) {
+        container.innerHTML = "<p>Your cart is empty.</p>";
+        document.getElementById("cart-summary").style.display = "none";
+        return;
+      } else {
+        document.getElementById("cart-summary").style.display = "block";
+      }
+
+      cart.forEach((item, index) => {
+        const productCard = document.createElement("div");
+        productCard.className = "product-card animate__animated animate__fadeIn";
+        productCard.innerHTML = `
+          <img src="${item.image}" alt="${item.title}" class="product-image">
+          <h3>${item.title}</h3>
+          <p>${item.description}</p>
+          <p class="price">Price: ₹${item.price}</p>
+          <button onclick="removeFromCart(${index})">Remove</button>
+        `;
+        container.appendChild(productCard);
+        total += parseFloat(item.price);
+      });
+
+      totalPriceElem.textContent = total.toFixed(2);
+    }
+
+    function removeFromCart(index) {
+      let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+      const removedItem = cart.splice(index, 1)[0];
+      localStorage.setItem("cartItems", JSON.stringify(cart));
+      alert(`${removedItem.title} removed from cart.`);
+      loadCart();
+    }
+
+    function checkoutCart() {
+      alert("Thank you for your purchase!");
+      localStorage.removeItem("cartItems");
+      loadCart();
+    }
+
+    document.addEventListener("DOMContentLoaded", loadCart);
+  </script>
+</body>
+</html>
