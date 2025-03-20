@@ -1,142 +1,113 @@
-/* ================================
-   NITw Marketplace CSS – Iteration 3
-   Themes: Light (white & navyblue-cyan) and Dark (more navy-blue/cyan oriented)
-   Custom cursor, notifications, typewriter animation, responsive layout, and interactive hover effects
-================================ */
 
-/* CSS Variables for Themes */
 :root {
-  /* Light Theme Colors */
   --light-bg: #ffffff;
   --light-text: #000000;
-  --light-link: #007BFF; /* navyblue-cyan tone */
+  --light-link: #007BFF;
   --light-shadow: rgba(0, 0, 0, 0.1);
-  
-  /* Dark Theme Colors */
   --dark-bg: #0b0b39;
   --dark-text: #E0E0E0;
   --dark-link: #af0be1;
   --dark-hover-shadow: rgba(0, 188, 212, 0.4);
-  
-  /* Common */
   --border-color: #ccc;
   --focus-shadow: rgba(0, 123, 255, 0.5);
 }
-
-/* Reset & Box Sizing */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
-/* Custom Cursor */
 body {
   cursor: url('custom-cursor.png'), auto;
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Theme Classes */
+  transition: background-color 0.3s ease, color 0.3s ease;}
 body.light-theme {
   background-color: var(--light-bg);
-  color: var(--light-text);
-}
+  color: var(--light-text);}
+
 body.dark-theme {
   background-color: var(--dark-bg);
-  color: var(--dark-text);
-}
+  color: var(--dark-text);}
 
-/* -------------------------------
-   Header & Navigation
--------------------------------- */
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
   background: inherit;
-  box-shadow: 0 2px 5px var(--light-shadow);
-}
+  box-shadow: 0 2px 5px var(--light-shadow);}
+
 header .logo img {
-  height: 50px;
-}
+  height: 50px;}
+
 nav ul {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
-}
+  flex-wrap: wrap;}
+
 nav ul li {
-  margin: 0 10px;
-}
+  margin: 0 10px;}
+
 nav ul li a {
   text-decoration: none;
   color: inherit;
   padding: 5px 10px;
-  border-radius: 4px;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
+  border-radius: 4px;  transition: box-shadow 0.3s ease, transform 0.3s ease;}
+
 nav ul li a:hover {
   box-shadow: 0 4px 8px var(--light-shadow);
-  transform: translateY(-2px);
-}
-body.dark-theme nav ul li a:hover {
-  box-shadow: 0 4px 8px var(--dark-hover-shadow);
-}
+  transform: translateY(-2px);}
 
-/* Theme Toggle Button */
+body.dark-theme nav ul li a:hover {
+  box-shadow: 0 4px 8px var(--dark-hover-shadow);}
+
 .theme-toggle button {
   padding: 8px 12px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   background-color: var(--light-link);
-  color: #fff;
-  transition: background-color 0.3s ease;
-}
-body.dark-theme .theme-toggle button {
-  background-color: var(--dark-link);
-}
-.theme-toggle button:hover {
-  opacity: 0.9;
+  color: #fff;  transition: background-color 0.3s ease;
 }
 
-/* -------------------------------
-   Notification Container
--------------------------------- */
+body.dark-theme .theme-toggle button {
+  background-color: var(--dark-link);}
+
+.theme-toggle button:hover {
+  opacity: 0.9;}
 #notification-container {
   position: fixed;
   top: 10px;
   right: 10px;
-  z-index: 9999;
-}
+  z-index: 9999;}
+
 .notification {
   margin-bottom: 10px;
   padding: 10px 15px;
   border-radius: 4px;
   color: #fff;
-  font-size: 0.9rem;
-}
-.notification.info {
-  background-color: #2196F3;
-}
-.notification.success {
-  background-color: #4CAF50;
-}
-.notification.error {
-  background-color: #F44336;
-}
+  font-size: 0.9rem;}
 
-/* -------------------------------
-   Welcome Section & Typewriter Animation
--------------------------------- */
+.notification.info {
+  background-color: #2196F3;}
+
+.notification.success {
+  background-color: #4CAF50;}
+
+.notification.error {
+  background-color: #F44336;}
+
 .welcome-section {
-  padding: 50px 20px;
-  text-align: center;
-}
+  background-image: url('https://your.image.url/here.jpg');
+  background-size: contain;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;  padding: 2rem;}
+
 .typed-animation {
   font-size: 2.5rem;
   white-space: nowrap;
@@ -145,13 +116,11 @@ body.dark-theme .theme-toggle button {
   width: 80%;
   margin: 0 auto;
 }
+
 .caret {
   display: inline-block;
 }
 
-/* -------------------------------
-   About Section
--------------------------------- */
 .about {
   margin: 20px auto;
   max-width: 800px;
@@ -160,42 +129,39 @@ body.dark-theme .theme-toggle button {
   font-size: 1.1rem;
 }
 
-/* -------------------------------
-   Gallery Section
--------------------------------- */
 .gallery {
   padding: 40px 20px;
 }
+
 .gallery h2 {
   text-align: center;
   margin-bottom: 20px;
 }
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 15px;
 }
+
 .gallery-grid img {
   width: 100%;
   height: auto;
   border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .gallery-grid img:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 8px var(--light-shadow);
 }
 
-/* -------------------------------
-   Products Grid (Auction, Buy, Rent)
--------------------------------- */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
   padding: 20px;
 }
-
 
 .product-card {
   display: flex;
@@ -207,28 +173,32 @@ body.dark-theme .theme-toggle button {
   background: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   height: 100%;
-  min-height: 450px; /* Ensures consistent height */
+  min-height: 450px;
 }
 
 .product-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 8px var(--light-shadow);
 }
+
 .product-card h3 {
   margin: 0 0 5px 0;
   font-size: 1.1rem;
 }
+
 .product-card p {
   margin: 4px 0;
   font-size: 0.95rem;
 }
-.product-card .price,
 
 .price, .current-bid {
   font-weight: bold;
-}.timer {
-  margin-top: auto; /* Pushes timer and button to bottom */
 }
+
+.timer {
+  margin-top: auto;
+}
+
 .product-card button {
   padding: 8px 12px;
   border: none;
@@ -238,13 +208,14 @@ body.dark-theme .theme-toggle button {
   cursor: pointer;
   transition: opacity 0.3s ease;
 }
+
 body.dark-theme .product-card button {
   background-color: var(--dark-link);
 }
+
 .product-card button:hover {
   opacity: 0.9;
 }
-/* Ensure product images fit within their container */
 
 .product-image {
   width: 100%;
@@ -253,6 +224,7 @@ body.dark-theme .product-card button {
   border-radius: 4px;
   margin-bottom: 10px;
 }
+
 button {
   margin-top: 10px;
   padding: 8px;
@@ -261,15 +233,13 @@ button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-}button:disabled {
+}
+
+button:disabled {
   background: gray;
   cursor: not-allowed;
 }
 
-
-/* -------------------------------
-   Form Container (Login, Signup, Sell, Rent)
--------------------------------- */
 .form-container {
   max-width: 500px;
   margin: 30px auto;
@@ -279,18 +249,29 @@ button {
   border-radius: 5px;
   transition: box-shadow 0.3s ease;
 }
+
 body.dark-theme .form-container {
   box-shadow: 0 2px 5px var(--dark-hover-shadow);
 }
+
 .form-container h2 {
   text-align: center;
   margin-bottom: 20px;
 }
+
+.input-icon {
+  display:flex;
+  align-items:center;
+  gap: 1.5rem;
+  padding-top: 5px;
+}
+
 .form-container form label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
 }
+
 .form-container form input,
 .form-container form textarea,
 .form-container form button,
@@ -302,6 +283,7 @@ body.dark-theme .form-container {
   border-radius: 4px;
   transition: box-shadow 0.3s ease;
 }
+
 .form-container form input:focus,
 .form-container form textarea:focus,
 .form-container form select:focus {
@@ -320,12 +302,65 @@ body.dark-theme .form-container form button {
 .form-container form button:hover {
   opacity: 0.9;
 }
+.form-group {
+  margin-bottom: 15px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.input-container label {
+  padding: 10px;
+  background-color: #f5f5f5;
+  margin: 0;
+  min-width: 120px;
+  border-right: 1px solid #ccc;
+}
+
+body.dark-theme .input-container label {
+  background-color: #2a2a3a;
+  border-right: 1px solid #444;
+}
+
+.input-container i.fas {
+  padding: 0 10px;
+  color: #555;
+}
+
+.input-container input,
+.input-container select {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  outline: none;
+}
+
+.toggle-password {
+  cursor: pointer;
+  padding-right: 10px !important;
+}
 
 
+.form-row {
+  display: flex;
+  gap: 15px;
+}
 
-/* Add these styles to your existing style.css file */
+.form-row .form-group {
+  flex: 1;
+}
 
-/* About Us Section */
+.terms-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .about-us {
   padding: 60px 20px;
   background-color: var(--bg-color);
@@ -364,7 +399,6 @@ body.dark-theme .form-container form button {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Contact Us Section */
 .contact-us {
   padding: 60px 20px;
   background-color: var(--bg-secondary);
@@ -443,7 +477,6 @@ body.dark-theme .form-container form button {
   color: #373fda;
 }
 
-/* FAQ Section */
 .faq {
   padding: 60px 20px;
   background-color: var(--bg-color);
@@ -497,7 +530,6 @@ body.dark-theme .form-container form button {
   transform: rotate(45deg);
 }
 
-/* Footer Styles */
 footer {
   background-color: var(--bg-secondary);
   color: var(--text-color);
@@ -579,8 +611,6 @@ html {
   padding: 20px;
   border-top: 1px solid #ddd;
 }
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .about-content, .contact-content {
     flex-direction: column;
@@ -595,11 +625,151 @@ html {
   }
 }
 
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 20px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px var(--light-shadow);
+  background: inherit;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.auth-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.input-icon {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0 10px;
+}
+
+.input-icon i {
+  margin-right: 10px;
+  color: #555;
+}
+
+.input-icon input,
+.input-icon select {
+  flex: 1;
+  width: 100%;
+  padding: 12px 10px;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.toggle-password {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.form-group.half {
+  flex: 1;
+}
+
+.terms-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.terms-checkbox input {
+  width: auto;
+  margin: 0;
+}
+
+.button-row {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.primary-btn {
+  background-color: var(--light-link);
+  color: white;
+}
+
+body.dark-theme .primary-btn {
+  background-color: var(--dark-link);
+}
+
+.google-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: #fff;
+  color: #444;
+  border: 1px solid #ddd;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 25px;
+}
+@media (max-width: 576px) {
+  .form-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .button-row {
+    flex-direction: column;
+  }
+}
 
 
-/* -------------------------------
-   Chat Container
--------------------------------- */
 .chat-container {
   max-width: 600px;
   margin: 30px auto;
@@ -635,10 +805,6 @@ html {
 .chat-message.seller {
   border-left: 4px solid #F44336;
 }
-
-/* -------------------------------
-   Footer
--------------------------------- */
 footer {
   text-align: center;
   padding: 20px;
@@ -649,10 +815,6 @@ footer {
 body.dark-theme footer {
   box-shadow: 0 -2px 5px var(--dark-hover-shadow);
 }
-
-/* -------------------------------
-   Responsive Design
--------------------------------- */
 @media (max-width: 768px) {
   header {
     flex-direction: column;
@@ -668,10 +830,6 @@ body.dark-theme footer {
     font-size: 1rem;
   }
 }    
-
-/* -------------------------------
-   Additional Animations
--------------------------------- */
 .animate-fadeIn {
   animation: fadeIn 1s ease-in-out forwards;
 }
