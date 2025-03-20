@@ -1,55 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>NITw Marketplace - Donate</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NITw Marketplace - Donate</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body class="light-theme">
-  <header>
-    <div class="logo">
-      <img src="https://via.placeholder.com/150" alt="Institute Logo" />
-    </div>
-    <nav>
-      <ul>
-        <li><a class="nav-link" href="index.html">Home</a></li>
-        <li><a class="nav-link" href="login.html">Login</a></li>
-        <li><a class="nav-link" href="signup.html">Signup</a></li>
-        <li><a class="nav-link" href="auction.html">Auction</a></li>
-        <li><a class="nav-link" href="sell.html">Sell</a></li>
-        <li><a class="nav-link" href="buy.html">Buy</a></li>
-        <li><a class="nav-link" href="rent.html">Rent</a></li>
-     
-        <li><a class="nav-link" href="donate.html">Donate</a></li>
-      </ul>
-    </nav>
-    <div class="theme-toggle">
-      <button id="toggleTheme">Toggle Theme</button>
-    </div>
-  </header>
-  
-  <main>
-    <div class="form-container">
-      <h2>Donate an Item</h2>
-      <form id="donateForm">
-        <label for="donateTitle">Item Title:</label>
-        <input type="text" id="donateTitle" name="title" required>
-        
-        <label for="donateDescription">Description:</label>
-        <textarea id="donateDescription" name="description" required></textarea>
-        
-        <label for="donateImage">Image URL:</label>
-        <input type="text" id="donateImage" name="image" placeholder="Enter image URL" required>
-        
-        <button type="submit">Donate Item</button>
-      </form>
-    </div>
-  </main>
-  
-  <footer>
-    <p>&copy; 2025 NITw Marketplace. All rights reserved.</p>
-  </footer>
-  
-  <script src="script.js"></script>
+<div class="body-container">
+<header>
+<div class="logo">
+<img src="https://avatars.githubusercontent.com/u/6388264?s=200&v=4" alt="Institute Logo">
+</div>
+<nav>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="login.html">Login</a></li>
+<li><a href="signup.html">Signup</a></li>
+<li><a href="auction.html">Auction</a></li>
+<li><a href="sell.html">Sell</a></li>
+<li><a href="buy.html">Buy</a></li>
+<li><a href="donate.html">Donate</a></li>
+<li><a href="cart.html">Cart</a></li>
+</ul>
+</nav>
+<div class="theme-toggle">
+<button id="toggleTheme">Toggle Theme</button>
+</div>
+</header>
+<main>
+<section class="auth-container">
+<div class="auth-card donate-card">
+<div class="auth-header">
+<h2>Donate an Item</h2>
+<p>Help your fellow students by donating items you no longer need</p>
+</div>
+<form id="donate-form" class="auth-form">
+<div class="form-group">
+<label for="item-title">Item Title</label>
+<div class="input-icon">
+<i class="fas fa-tag"></i>
+<input type="text" id="item-title" name="item-title" required placeholder="Enter item title">
+</div>
+</div>
+<div class="form-group">
+<label for="item-category">Category</label>
+<div class="input-icon">
+<i class="fas fa-list"></i>
+<select id="item-category" name="item-category" required>
+<option value="" disabled selected>Select item category</option>
+<option value="books">Books</option>
+<option value="electronics">Electronics</option>
+<option value="furniture">Furniture</option>
+<option value="clothing">Clothing</option>
+<option value="sports">Sports Equipment</option>
+<option value="study">Study Materials</option>
+<option value="other">Other</option>
+</select>
+</div>
+</div>
+<div class="form-group">
+<label for="item-condition">Condition</label>
+<div class="input-icon">
+<i class="fas fa-star-half-alt"></i>
+<select id="item-condition" name="item-condition" required>
+<option value="" disabled selected>Select item condition</option>
+<option value="new">New</option>
+<option value="like-new">Like New</option>
+<option value="good">Good</option>
+<option value="fair">Fair</option>
+<option value="poor">Poor</option>
+</select>
+</div>
+</div>
+<div class="form-group">
+<label for="item-description">Description</label>
+<div class="input-icon textarea-icon">
+<i class="fas fa-align-left"></i>
+<textarea id="item-description" name="item-description" rows="4" required placeholder="Describe your item in detail"></textarea>
+</div>
+</div>
+<div class="form-group">
+<label for="item-image">Upload Image</label>
+<div class="input-icon">
+<i class="fas fa-image"></i>
+<input type="file" id="item-image" name="item-image" accept="image/*">
+</div>
+</div>
+<div class="form-group">
+<label for="contact-preferences">Contact Preferences</label>
+<div class="input-icon">
+<i class="fas fa-phone"></i>
+<select id="contact-preferences" name="contact-preferences" required>
+<option value="" disabled selected>How should recipients contact you?</option>
+<option value="email">Email</option>
+<option value="phone">Phone</option>
+<option value="both">Both Email & Phone</option>
+<option value="platform">Platform Messaging Only</option>
+</select>
+</div>
+</div>
+<div class="form-group">
+<div class="terms-checkbox">
+<input type="checkbox" id="donation-terms" name="donation-terms" required>
+<label for="donation-terms">I confirm this is a free donation and I am the rightful owner of this item</label>
+</div>
+</div>
+<div class="button-row">
+<button type="submit" class="btn primary-btn full-width">Donate Item</button>
+</div>
+</form>
+</div>
+</section>
+</main>
+<footer>
+<div class="footer-content">
+<div class="footer-section">
+<h3>About NITw Marketplace</h3>
+<p>A platform created by students, for students to buy, sell, and auction items within the college community.</p>
+</div>
+<div class="footer-section">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="about.html">About Us</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="faq.html">FAQs</a></li>
+<li><a href="terms.html">Terms of Service</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h3>Connect With Us</h3>
+<div class="social-icons">
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2025 NITw Marketplace. All rights reserved.</p>
+</div>
+</footer>
+</div>
+<div id="notification-container"></div>
+<script src="script.js"></script>
 </body>
 </html>
