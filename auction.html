@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NITw Marketplace - Auction</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    .timer { 
+      font-weight: bold; 
+      color: #e63946; 
+    }
+    .ended { 
+      color: gray; 
+      font-style: italic; 
+    }
+  </style>
+</head>
+<body class="light-theme">
+  <header>
+    <div class="logo">
+      <img src="https://avatars.githubusercontent.com/u/6388264?s=200&v=4" alt="Institute Logo" />
+    </div>
+    <nav>
+      <ul>
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="login.html">Login</a></li>
+        <li><a class="nav-link" href="signup.html">Signup</a></li>
+        <li><a class="nav-link" href="auction.html">Auction</a></li>
+        <li><a class="nav-link" href="sell.html">Sell</a></li>
+        <li><a class="nav-link" href="buy.html">Buy</a></li>
+        <li><a class="nav-link" href="rent.html">Rent</a></li>
+       
+        <li><a class="nav-link" href="donate.html">Donate</a></li>
+      </ul>
+    </nav>
+    <div class="theme-toggle">
+      <button id="toggleTheme">Toggle Theme</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="auction-products" class="products-grid">
+      <!-- Auction products will be dynamically loaded here -->
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About NITw Marketplace</h3>
+        <p>A platform created by students, for students to buy, sell, and auction items within the college community.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Connect With Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 NITw Marketplace. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    const now = new Date().getTime();
+
+    const auctionProducts = [
+      { 
+        id: 2, 
+        title: "Cycle", 
+        description: "A sturdy cycle for everyday use.", 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVfwnDl7uXMUZ9BxpfRYeO1M0q9Vx-ljuOtg&s", 
+        price: 1500, 
+        currentBid: 1500, 
+        endTime: now + 3 * 24 * 60 * 60 * 1000 // Ends in 3 days
+      },
+      { 
+        id: 4, 
+        title: "Calculator", 
+        description: "Scientific calculator for engineering students.", 
+        image: "https://www.casio.com/content/dam/casio/product-info/locales/in/en/calc/product/scientific/F/FC/FC2/fc-200v-2/assets/FC-200V-2_F.png.transform/product-panel/image.png", 
+        price: 800, 
+        currentBid: 800, 
+        endTime: now + 12 * 60 * 60 * 1000 // Ends in 12 hours
+      },
+      { 
+        id: 9, 
+        title: "Laptop Stand", 
+        description: "Adjustable stand for laptops.", 
+        image: "https://www.hikerstore.in/cdn/shop/files/1_c26e64fb-8c64-4f54-98aa-86bdaf20ee60.jpg?v=1689778460&width=2048", 
+        price: 700, 
+        currentBid: 700, 
+        endTime: now + 36 * 60 * 60 * 1000 // Ends in 1.5 days
+      },
+      { 
+        id: 10, 
+        title: "Backpack", 
+        description: "Durable backpack for college.", 
+        image: "https://brownbear.in/cdn/shop/products/leather-manhattan-backpack-in-genuine-leather-678567.jpg?v=1734938154&width=1200", 
+        price: 900, 
+        currentBid: 900, 
+        endTime: now + 8 * 60 * 60 * 1000 // Ends in 8 hours
+      },
+      { 
+        id: 5, 
+        title: "Football", 
+        description: "High quality football for practice.", 
+        image: "https://5.imimg.com/data5/SELLER/Default/2022/4/WT/TW/SY/151364306/football-500x500.jpg", 
+        price: 600, 
+        currentBid: 600, 
+        endTime: now + 1 * 24 * 60 * 60 * 1000 // Ends in 1 day
+      },
+      { 
+        id: 8, 
+        title: "Cycle Helmet", 
+        description: "Safety first with this stylish helmet.", 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQabZx_QUUL6qmmoJUlCdEAFA1HdO4iglGiwA&s", 
+        price: 200, 
+        currentBid: 200, 
+        endTime: now + 5 * 60 * 60 * 1000 // Ends in 5 hours
+      },
+      { 
+        id: 3, 
+        title: "Kettle", 
+        description: "An energy efficient kettle.", 
+        image: "https://fohen.co.uk/cdn/shop/articles/Plastic_Kettle_d5b84e0d-25fa-44d6-bdb2-f2934d55ab11.webp?v=1737991450", 
+        price: 500, 
+        currentBid: 500, 
+        endTime: now + 10 * 60 * 60 * 1000 // Ends in 10 hours
+      },
+      { 
+        id: 11, 
+        title: "Engineering Book - Signals", 
+        description: "In-depth coverage on signals.", 
+        image: "https://m.media-amazon.com/images/I/61l3szkxtfL._AC_UF1000,1000_QL80_.jpg", 
+        price: 350, 
+        currentBid: 350, 
+        endTime: now + 18 * 60 * 60 * 1000 // Ends in 18 hours
+      },
+      { 
+        id: 1, 
+        title: "Engineering Book - Thermodynamics", 
+        description: "A comprehensive guide to thermodynamics.", 
+        image: "https://www.mheducation.co.in/media/catalog/product/cache/081b8c22b4dd107671c14f517fd777a1/9/7/9789353165741_46.jpeg", 
+        price: 250, 
+        currentBid: 250, 
+        endTime: now + 2 * 24 * 60 * 60 * 1000 // Ends in 2 days
+      }
+    ];
+
+    function loadAuctionProducts() {
+      const container = document.getElementById("auction-products");
+      auctionProducts.forEach(product => {
+        const productCard = document.createElement("div");
+        productCard.className = "product-card animate-fadeIn";
+        productCard.innerHTML = `
+          <img src="${product.image}" alt="${product.title}" class="product-image">
+          <h3>${product.title}</h3>
+          <p>${product.description}</p>
+          <p class="price">Price: ₹${product.price}</p>
+          <p class="current-bid">Current Bid: ₹<span id="bid-${product.id}">${product.currentBid}</span></p>
+          <p class="timer" id="timer-${product.id}">Loading timer...</p>
+          <button id="bid-btn-${product.id}" onclick="placeBid(${product.id})">Place Bid</button>
+        `;
+        container.appendChild(productCard);
+      });
+      startCountdowns();
+    }
+
+    function startCountdowns() {
+      setInterval(() => {
+        const currentTime = new Date().getTime();
+        auctionProducts.forEach(product => {
+          const distance = product.endTime - currentTime;
+          const timerEl = document.getElementById(`timer-${product.id}`);
+          const bidBtn = document.getElementById(`bid-btn-${product.id}`);
+          if (distance <= 0) {
+            timerEl.innerHTML = "Auction Ended";
+            timerEl.classList.add("ended");
+            bidBtn.disabled = true;
+            bidBtn.textContent = "Closed";
+          } else {
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hrs = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const secs = Math.floor((distance % (1000 * 60)) / 1000);
+            timerEl.innerHTML = `Ends in: ${days}d ${hrs}h ${mins}m ${secs}s`;
+          }
+        });
+      }, 1000);
+    }
+
+    function placeBid(productId) {
+      const product = auctionProducts.find(p => p.id === productId);
+      const currentTime = new Date().getTime();
+      if (currentTime >= product.endTime) {
+        alert("Auction has already ended for this product.");
+        return;
+      }
+      let bid = parseFloat(prompt("Enter your bid (in INR):", product.currentBid));
+      if (bid && bid > product.currentBid) {
+        product.currentBid = bid;
+        document.getElementById(`bid-${product.id}`).textContent = bid;
+        alert("Bid placed successfully!");
+      } else {
+        alert("Your bid must be higher than the current bid.");
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", loadAuctionProducts);
+  </script>
+</body>
+</html>

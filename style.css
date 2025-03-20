@@ -1,0 +1,681 @@
+/* ================================
+   NITw Marketplace CSS – Iteration 3
+   Themes: Light (white & navyblue-cyan) and Dark (more navy-blue/cyan oriented)
+   Custom cursor, notifications, typewriter animation, responsive layout, and interactive hover effects
+================================ */
+
+/* CSS Variables for Themes */
+:root {
+  /* Light Theme Colors */
+  --light-bg: #ffffff;
+  --light-text: #000000;
+  --light-link: #007BFF; /* navyblue-cyan tone */
+  --light-shadow: rgba(0, 0, 0, 0.1);
+  
+  /* Dark Theme Colors */
+  --dark-bg: #0b0b39;
+  --dark-text: #E0E0E0;
+  --dark-link: #af0be1;
+  --dark-hover-shadow: rgba(0, 188, 212, 0.4);
+  
+  /* Common */
+  --border-color: #ccc;
+  --focus-shadow: rgba(0, 123, 255, 0.5);
+}
+
+/* Reset & Box Sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom Cursor */
+body {
+  cursor: url('custom-cursor.png'), auto;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme Classes */
+body.light-theme {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+body.dark-theme {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+/* -------------------------------
+   Header & Navigation
+-------------------------------- */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: inherit;
+  box-shadow: 0 2px 5px var(--light-shadow);
+}
+header .logo img {
+  height: 50px;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+nav ul li {
+  margin: 0 10px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: inherit;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+nav ul li a:hover {
+  box-shadow: 0 4px 8px var(--light-shadow);
+  transform: translateY(-2px);
+}
+body.dark-theme nav ul li a:hover {
+  box-shadow: 0 4px 8px var(--dark-hover-shadow);
+}
+
+/* Theme Toggle Button */
+.theme-toggle button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--light-link);
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+body.dark-theme .theme-toggle button {
+  background-color: var(--dark-link);
+}
+.theme-toggle button:hover {
+  opacity: 0.9;
+}
+
+/* -------------------------------
+   Notification Container
+-------------------------------- */
+#notification-container {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 9999;
+}
+.notification {
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 0.9rem;
+}
+.notification.info {
+  background-color: #2196F3;
+}
+.notification.success {
+  background-color: #4CAF50;
+}
+.notification.error {
+  background-color: #F44336;
+}
+
+/* -------------------------------
+   Welcome Section & Typewriter Animation
+-------------------------------- */
+.welcome-section {
+  padding: 50px 20px;
+  text-align: center;
+}
+.typed-animation {
+  font-size: 2.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid currentColor;
+  width: 80%;
+  margin: 0 auto;
+}
+.caret {
+  display: inline-block;
+}
+
+/* -------------------------------
+   About Section
+-------------------------------- */
+.about {
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 20px;
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+/* -------------------------------
+   Gallery Section
+-------------------------------- */
+.gallery {
+  padding: 40px 20px;
+}
+.gallery h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px var(--light-shadow);
+}
+
+/* -------------------------------
+   Products Grid (Auction, Buy, Rent)
+-------------------------------- */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  min-height: 450px; /* Ensures consistent height */
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px var(--light-shadow);
+}
+.product-card h3 {
+  margin: 0 0 5px 0;
+  font-size: 1.1rem;
+}
+.product-card p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+}
+.product-card .price,
+
+.price, .current-bid {
+  font-weight: bold;
+}.timer {
+  margin-top: auto; /* Pushes timer and button to bottom */
+}
+.product-card button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--light-link);
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+body.dark-theme .product-card button {
+  background-color: var(--dark-link);
+}
+.product-card button:hover {
+  opacity: 0.9;
+}
+/* Ensure product images fit within their container */
+
+.product-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+button {
+  margin-top: 10px;
+  padding: 8px;
+  background: #457b9d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}button:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
+
+/* -------------------------------
+   Form Container (Login, Signup, Sell, Rent)
+-------------------------------- */
+.form-container {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 20px;
+  background: inherit;
+  box-shadow: 0 2px 5px var(--light-shadow);
+  border-radius: 5px;
+  transition: box-shadow 0.3s ease;
+}
+body.dark-theme .form-container {
+  box-shadow: 0 2px 5px var(--dark-hover-shadow);
+}
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.form-container form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.form-container form input,
+.form-container form textarea,
+.form-container form button,
+.form-container form select {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  transition: box-shadow 0.3s ease;
+}
+.form-container form input:focus,
+.form-container form textarea:focus,
+.form-container form select:focus {
+  outline: none;
+  box-shadow: 0 0 5px var(--focus-shadow);
+}
+.form-container form button {
+  background-color: var(--light-link);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+body.dark-theme .form-container form button {
+  background-color: var(--dark-link);
+}
+.form-container form button:hover {
+  opacity: 0.9;
+}
+
+
+
+/* Add these styles to your existing style.css file */
+
+/* About Us Section */
+.about-us {
+  padding: 60px 20px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-text p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Us Section */
+.contact-us {
+  padding: 60px 20px;
+  background-color: var(--bg-secondary);
+  color: var(--text-color);
+}
+
+.contact-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.submit-btn {
+  padding: 10px 20px;
+  background-color: #4928cf;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #3d32dc;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 300px;
+  padding-left: 20px;
+}
+
+.contact-info h3 {
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-info i {
+  margin-right: 10px;
+  width: 20px;
+  color: #373fda;
+}
+
+/* FAQ Section */
+.faq {
+  padding: 60px 20px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: var(--bg-secondary);
+  cursor: pointer;
+}
+
+.faq-question h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.faq-toggle {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.faq-answer {
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.faq-item.active .faq-answer {
+  padding: 15px 20px;
+  max-height: 500px;
+}
+
+.faq-item.active .faq-toggle {
+  transform: rotate(45deg);
+}
+
+/* Footer Styles */
+footer {
+  background-color: var(--bg-secondary);
+  color: var(--text-color);
+  padding: 0;
+  margin-top: 40px;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 20px;
+  padding-right: 20px;
+}
+
+.footer-section h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer-section p {
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #3c1f7d
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.social-icons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  background-color: #1546c3;
+  color: white;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.social-icons a:hover {
+  background-color: #3c1f7d;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #ddd;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-content, .contact-content {
+    flex-direction: column;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+  }
+  
+  .footer-section {
+    padding-right: 0;
+  }
+}
+
+
+
+/* -------------------------------
+   Chat Container
+-------------------------------- */
+.chat-container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background: inherit;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+.chat-container h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.chat-window {
+  border: 1px solid var(--border-color);
+  height: 300px;
+  overflow-y: auto;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+.chat-message {
+  margin-bottom: 10px;
+  padding: 8px;
+  background-color: var(--light-shadow);
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+.chat-message:hover {
+  transform: translateX(5px);
+}
+.chat-message.buyer {
+  border-left: 4px solid #4CAF50;
+}
+.chat-message.seller {
+  border-left: 4px solid #F44336;
+}
+
+/* -------------------------------
+   Footer
+-------------------------------- */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: inherit;
+  box-shadow: 0 -2px 5px var(--light-shadow);
+  font-size: 0.9rem;
+}
+body.dark-theme footer {
+  box-shadow: 0 -2px 5px var(--dark-hover-shadow);
+}
+
+/* -------------------------------
+   Responsive Design
+-------------------------------- */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+  }
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  .typed-animation {
+    font-size: 2rem; 
+  }
+  .about {
+    font-size: 1rem;
+  }
+}    
+
+/* -------------------------------
+   Additional Animations
+-------------------------------- */
+.animate-fadeIn {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

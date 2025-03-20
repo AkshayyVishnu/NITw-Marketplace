@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NITw Marketplace - Chat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Institute Logo" />
+    </div>
+    <nav>
+      <ul>
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="login.html">Login</a></li>
+        <li><a class="nav-link" href="signup.html">Signup</a></li>
+        <li><a class="nav-link" href="auction.html">Auction</a></li>
+        <li><a class="nav-link" href="sell.html">Sell</a></li>
+        <li><a class="nav-link" href="buy.html">Buy</a></li>
+        <li><a class="nav-link" href="rent.html">Rent</a></li>
+       
+        <li><a class="nav-link" href="donate.html">Donate</a></li>
+      </ul>
+    </nav>
+    <div class="theme-toggle">
+      <button id="toggleTheme">Toggle Theme</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="chat-container">
+      <h2>Chat Room</h2>
+      <!-- Role Selector for Chat -->
+      <div class="chat-role">
+        <label for="chatRole">I am a:</label>
+        <select id="chatRole">
+          <option value="buyer">Buyer</option>
+          <option value="seller">Seller</option>
+        </select>
+      </div>
+      <div id="chatWindow" class="chat-window">
+        <!-- Chat messages will appear here -->
+      </div>
+      <form id="chatForm">
+        <input type="text" id="chatInput" placeholder="Type your message here..." required>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 NITw Marketplace. All rights reserved.</p>
+  </footer>
+  
+  <script src="script.js"></script>
+  <script>
+    // Chat functionality with role-based messages
+    document.getElementById("chatForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const input = document.getElementById("chatInput");
+      const chatWindow = document.getElementById("chatWindow");
+      const role = document.getElementById("chatRole").value;
+      const message = input.value;
+      const messageDiv = document.createElement("div");
+      
+      // Apply different styles based on the role
+      messageDiv.className = "chat-message animate-fadeIn " + role;
+      messageDiv.innerHTML = `<strong>${role.toUpperCase()}:</strong> ${message}`;
+      
+      chatWindow.appendChild(messageDiv);
+      input.value = "";
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+    });
+  </script>
+</body>
+</html>

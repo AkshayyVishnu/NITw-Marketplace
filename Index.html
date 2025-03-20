@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NITw Marketplace - Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="light-theme">
+  <header>
+    <div class="logo">
+      <img src="https://via.placeholder.com/150" alt="Institute Logo" />
+    </div>
+    <nav>
+      <ul>
+        <li><a class="nav-link" href="#home">Home</a></li>
+        <li><a class="nav-link" href="login.html">Login</a></li>
+        <li><a class="nav-link" href="signup.html">Signup</a></li>
+        <li><a class="nav-link" href="auction.html">Auction</a></li>
+        <li><a class="nav-link" href="sell.html">Sell</a></li>
+        <li><a class="nav-link" href="buy.html">Buy</a></li>
+        <li><a class="nav-link" href="rent.html">Rent</a></li>
+        <li><a class="nav-link" href="donate.html">Donate</a></li>
+        <li><a class="nav-link" href="#about">About Us</a></li>
+        <li><a class="nav-link" href="#contact">Contact Us</a></li>
+        <li><a class="nav-link" href="#faq">FAQs</a></li>
+      </ul>
+    </nav>
+    <div class="theme-toggle">
+      <button id="toggleTheme" class="animate__animated">Toggle Theme</button>
+    </div>
+  </header>
+  
+  <div id="notification-container"></div>
+  
+  <main>
+    <section id="home" class="welcome-section">
+      <div class="typed-animation">
+        <h1></h1>
+        <span class="caret"></span>
+      </div>
+      <div class="about">
+        <p>
+          Welcome to NITw Marketplace – your one-stop destination for buying, selling, auctioning, and renting items. Enjoy our interactive, responsive platform with dynamic animations and a seamless user experience.
+        </p>
+      </div>
+    </section>
+    <section class="gallery">
+      <h2>Featured Items</h2>
+      <div class="gallery-grid">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVfwnDl7uXMUZ9BxpfRYeO1M0q9Vx-ljuOtg&s" alt="Gang Linear Cycle">
+        <img src="https://nestasia.in/cdn/shop/files/SQL41ANSM02_550x.jpg?v=1711431533" alt="Kettle">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSETweJkzEwceRd5ZKxNaKKivOo5dUz1rcszg&s" alt="Calculator">
+        <img src="https://apollo.olx.in/v1/files/s4xuwkev47uj3-IN/image;s=272x0" alt="Headphones">
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about-us">
+      <h2>About Us</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>NITW Marketplace was founded in 2024 with a simple mission: to create a sustainable and efficient platform for NIT Warangal students to exchange goods within the campus community.</p>
+          <p>Our platform helps reduce waste, save money, and build a stronger campus community by facilitating peer-to-peer transactions for textbooks, electronics, furniture, and more.</p>
+          <p>Created by students, for students, we understand the unique needs of college life and strive to make exchanging items as seamless as possible.</p>
+        </div>
+        <div class="about-image">
+          <img src="https://via.placeholder.com/400x300" alt="NITW Campus">
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="contact-us">
+      <h2>Contact Us</h2>
+      <div class="contact-content">
+        <div class="contact-form">
+          <form action="#" method="post">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <p><i class="fas fa-map-marker-alt"></i> NITW Campus, Warangal, Telangana - 506004</p>
+          <p><i class="fas fa-envelope"></i> support@nitwmarketplace.com</p>
+          <p><i class="fas fa-phone"></i> +91 123 456 7890</p>
+          <p><i class="fas fa-clock"></i> Monday - Friday: 9AM - 6PM</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>How do I create an account?</h3>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Simply click on the "Signup" link in the navigation menu and fill out the required information. You'll need to use your college email address for verification.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>How does the auction system work?</h3>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Users can list items for auction with a starting bid and duration. Other users can place bids until the auction ends, and the highest bidder wins the item.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Is there a fee for using the platform?</h3>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>No, NITW Marketplace is completely free for all NIT Warangal students. We believe in fostering a community of sharing and sustainability.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>How can I ensure safe transactions?</h3>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>We recommend meeting in public places on campus for exchanges, using our in-app chat for communication, and using our rating system to verify trusted users.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>What items are prohibited on the platform?</h3>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Prohibited items include illegal goods, weapons, alcohol, tobacco products, prescription medications, and any items that violate college policies.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About NITW Marketplace</h3>
+        <p>A platform created by students, for students to buy, sell, and auction items within the college community.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <nav>
+            <ul>
+              <li><a class="nav-link" href="#about">About Us</a></li>
+              <li><a class="nav-link" href="#contact">Contact Us</a></li>
+              <li><a class="nav-link" href="#faq">FAQs</a></li>
+            </ul>
+          </nav>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Connect With Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 NITw Marketplace. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <script src="script.js"></script>
+</body>
+</html>
