@@ -7,41 +7,44 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
+
 <body class="light-theme">
   <header>
     <div class="logo">
       <img src="https://avatars.githubusercontent.com/u/6388264?s=200&v=4" alt="Institute Logo" />
     </div>
+
     <nav>
-      <ul>
+      <ul style="display: flex; justify-content: space-between; align-items: center; padding: 0 20px; list-style: none;">
         <li><a class="nav-link" href="index.html">Home</a></li>
         <li><a class="nav-link" href="login.html">Login</a></li>
         <li><a class="nav-link" href="signup.html">Signup</a></li>
         <li><a class="nav-link" href="auction.html">Auction</a></li>
         <li><a class="nav-link" href="sell.html">Sell</a></li>
         <li><a class="nav-link" href="buy.html">Buy</a></li>
-        <li><a class="nav-link" href="rent.html">Rent</a></li>
-  
         <li><a class="nav-link" href="donate.html">Donate</a></li>
+        <li><a class="nav-link" href="cart.html">Cart</a></li>
       </ul>
     </nav>
+
     <div class="theme-toggle">
       <button id="toggleTheme">Toggle Theme</button>
     </div>
   </header>
-  
+
   <main>
     <section id="buy-products" class="products-grid">
-      <!-- Items will be loaded here from both Sell page and static buyProducts -->
+     
     </section>
   </main>
-  
+
   <footer>
     <div class="footer-content">
       <div class="footer-section">
         <h3>About NITw Marketplace</h3>
         <p>A platform created by students, for students to buy, sell, and auction items within the college community.</p>
       </div>
+
       <div class="footer-section">
         <h3>Quick Links</h3>
         <ul>
@@ -51,6 +54,7 @@
           <li><a href="terms.html">Terms of Service</a></li>
         </ul>
       </div>
+
       <div class="footer-section">
         <h3>Connect With Us</h3>
         <div class="social-icons">
@@ -61,42 +65,41 @@
         </div>
       </div>
     </div>
+
     <div class="footer-bottom">
       <p>&copy; 2025 NITw Marketplace. All rights reserved.</p>
     </div>
   </footer>
-  
+
   <script src="script.js"></script>
   <script>
-    // Pre-listed Buy Products Array – Expanded to about 12 items
+   
     const staticBuyProducts = [
-      { id: 102, title: "Cycle", description: "Lightweight cycle for daily commute.",  image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVfwnDl7uXMUZ9BxpfRYeO1M0q9Vx-ljuOtg&s",  price: 1600 },
+      { id: 102, title: "Cycle", description: "Lightweight cycle for daily commute.", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVfwnDl7uXMUZ9BxpfRYeO1M0q9Vx-ljuOtg&s", price: 1600 },
       { id: 109, title: "Smartwatch", description: "Feature-rich smartwatch.", image: "https://images.news18.com/ibnlive/uploads/2024/10/google-pixel-watch-3-review-2024-10-d5d5d162c1e36d75c853b51581e549f0-3x2.jpg", price: 2000 },
-      
-      { id: 104, title: "Calculator", description: "Advanced scientific calculator.",  image: "https://www.casio.com/content/dam/casio/product-info/locales/in/en/calc/product/scientific/F/FC/FC2/fc-200v-2/assets/FC-200V-2_F.png.transform/product-panel/image.png", price: 850 },
+      { id: 104, title: "Calculator", description: "Advanced scientific calculator.", image: "https://www.casio.com/content/dam/casio/product-info/locales/in/en/calc/product/scientific/F/FC/FC2/fc-200v-2/assets/FC-200V-2_F.png.transform/product-panel/image.png", price: 850 },
       { id: 105, title: "Football", description: "Durable football for sports.", image: "https://5.imimg.com/data5/SELLER/Default/2022/4/WT/TW/SY/151364306/football-500x500.jpg", price: 650 },
       { id: 106, title: "Guitar", description: "Acoustic guitar for beginners.", image: "https://media.ipassio.com/media/ckeditor_image/2022/12/05/guitar.jpg", price: 1200 },
       { id: 107, title: "Iphone", description: "Iphone Xs 256Gb storage White colour", image: "https://dukaan.b-cdn.net/700x700/webp/media/7d78bf52-0b5d-4aa9-81a5-c77a36ae0788.jpg", price: 50000 },
       { id: 108, title: "Headphones", description: "Noise-cancelling headphones.", image: "https://apollo.olx.in/v1/files/s4xuwkev47uj3-IN/image;s=272x0", price: 1200 },
       { id: 103, title: "Kettle", description: "Quick boiling kettle.", image: "https://fohen.co.uk/cdn/shop/articles/Plastic_Kettle_d5b84e0d-25fa-44d6-bdb2-f2934d55ab11.webp?v=1737991450", price: 550 },
-
       { id: 110, title: "Laptop Bag", description: "Stylish and durable laptop bag.", image: "https://nestasia.in/cdn/shop/files/SQL41ANSM02_550x.jpg?v=1711431533", price: 800 },
       { id: 111, title: "Wireless Mouse", description: "Ergonomic wireless mouse.", image: "https://thumbs.dreamstime.com/b/black-computer-mouse-light-wooden-background-copy-space-your-text-top-view-87601440.jpg", price: 400 },
-      { id: 112, title: "Fast charging power bank.", description: "Power bank. 200000 mah capacity", image: "https://media.wired.com/photos/666e09c3425063dc61d564bb/master/w_960,c_limit/Anker-737-Power-Bank-Reviewer-Photo-SOURCE-Simon-Hill.jpg", price: 600 },
+      { id: 112, title: "Power bank", description: "Fast charging power bank. 200000 mah capacity", image: "https://media.wired.com/photos/666e09c3425063dc61d564bb/master/w_960,c_limit/Anker-737-Power-Bank-Reviewer-Photo-SOURCE-Simon-Hill.jpg", price: 600 },
       { id: 101, title: "Engineering Book - Fluid Mechanics", description: "Comprehensive guide on fluid mechanics.", image: "https://www.mheducation.co.in/media/catalog/product/cache/081b8c22b4dd107671c14f517fd777a1/9/7/9789353165741_46.jpeg", price: 300 }
-      
     ];
 
-    // Function to load products from Sell page (stored in localStorage)
+    
     function loadSellItems() {
       return JSON.parse(localStorage.getItem("sellItems")) || [];
     }
 
+    
     function loadBuyProducts() {
       const container = document.getElementById("buy-products");
-      container.innerHTML = ""; // Clear any existing items
-      
-      // Load static buy products
+      container.innerHTML = "";
+
+s
       staticBuyProducts.forEach(product => {
         const productCard = document.createElement("div");
         productCard.className = "product-card animate-fadeIn";
@@ -105,12 +108,11 @@
           <h3>${product.title}</h3>
           <p>${product.description}</p>
           <p class="price">Price: ₹${product.price}</p>
-          <button onclick="buyProduct(${product.id})">Buy Now</button>
+          <button onclick="addToCart(${product.id}, 'static')">Add to Cart</button>
         `;
         container.appendChild(productCard);
       });
-      
-      // Load items posted from Sell page
+
       const sellItems = loadSellItems();
       sellItems.forEach(item => {
         const productCard = document.createElement("div");
@@ -120,18 +122,34 @@
           <h3>${item.title}</h3>
           <p>${item.description}</p>
           <p class="price">Price: ₹${item.price}</p>
-          <button onclick="buyItem(${item.id})">Buy Now</button>
+          <button onclick="addToCart(${item.id}, 'sell')">Add to Cart</button>
         `;
         container.appendChild(productCard);
       });
     }
 
-    function buyProduct(productId) {
-      alert("Thank you for your purchase!");
+    function addToCart(id, source) {
+      let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+      let item;
+
+      if (source === 'static') {
+        item = staticBuyProducts.find(p => p.id === id);
+      } else {
+        const sellItems = loadSellItems();
+        item = sellItems.find(p => p.id === id);
+      }
+
+      if (item) {
+        cart.push(item);
+        localStorage.setItem("cartItems", JSON.stringify(cart));
+        alert(`${item.title} has been added to your cart!`);
+      }
     }
 
-    function buyItem(itemId) {
-      alert("Thank you for your purchase of the item from Sell page!");
+    function deleteAllSellItems() {
+      localStorage.removeItem("sellItems");
+      loadBuyProducts();
+      console.log("All sell items deleted successfully.");
     }
 
     document.addEventListener("DOMContentLoaded", loadBuyProducts);
